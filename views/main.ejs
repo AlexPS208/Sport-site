@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+    <title>Health&Food</title>
+</head>
+
+<body>
+    <div id="main_container"></div>
+    <nav>
+        <ul>
+            <li><a href="Головна сторінка.html">Головна сторінка</a></li>
+            <li class="drop">
+                <a href="Правильне харчування.html">Правильне харчування</a>
+    
+                <div class="dropdownContain">
+                    <div class="dropOut">
+                        <div class="triangle"></div>
+                        <ul>
+                            <li><a href="Сніданок.html">Сніданок</a></li>
+                            <li><a href="Обід.html">Обід</a></li>
+                            <li><a href="Вечеря.html">Вечеря</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+            </li>
+            <li class="drop">
+                <a href="Тренування.html">Тренування</a>
+                <div class="dropdownContain">
+                    <div class="dropOut">
+                        <div class="triangle"></div>
+                        <ul>
+                            <li> <a href="Спина.html">М'язи спини</a></li>
+                            <li> <a href="Руки.html">М'язи рук</a></li>
+                            <li> <a href="Прес.html">М'язи живота</a></li>
+                            <li> <a href="Ноги.html">М'язи ніг</a></li>
+                            <li> <a href="Сідниці.html">М'язи сідниць</a></li>
+                            <li> <a href="Всі м'язи.html">М'язи всього тіла</a></li>
+                        </ul>
+                    </div>
+                </div>
+    </nav>
+    
+    <%- include('./partials/main.ejs') %>
+    
+    <div id="footer">
+        <div class="left_footer">Health&Food &copy; 2022</div>
+        <div class="right_footer"></div>
+    </div>
+    </div>
+</body>
+
+</html>

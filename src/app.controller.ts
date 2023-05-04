@@ -1,4 +1,5 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { AppService } from './app.service';
 
 @Controller()
@@ -6,10 +7,10 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('main.ejs')
-  root(): object {
-    return {
-      message: 'Hello there'
-    };
+  root(@Res() res: Response) {
+    return res.render(
+      'main.ejs',
+      { path: './partials/main.ejs' },
+    );
   }
 }

@@ -19,6 +19,7 @@ import {
 import { BreakfastController } from './breakfast/breakfast.controller';
 import { LunchController } from './lunch/lunch.controller';
 import { DinnerController } from './dinner/dinner.controller';
+import { HealthyFoodController } from './healthy_food/healthy_food.controller';
 
 @Module({
   imports: [ServeStaticModule.forRoot({
@@ -26,7 +27,7 @@ import { DinnerController } from './dinner/dinner.controller';
     }),
     ConfigModule.forRoot()
   ],
-  controllers: [AppController, BreakfastController, LunchController, DinnerController],
+  controllers: [AppController, BreakfastController, LunchController, DinnerController, HealthyFoodController],
   providers: [AppService],
 })
 export class AppModule {}

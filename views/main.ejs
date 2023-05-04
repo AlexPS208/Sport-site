@@ -14,17 +14,17 @@
     <div id="main_container"></div>
     <nav>
         <ul>
-            <li><a href="Головна сторінка.html">Головна сторінка</a></li>
+            <li><a href="/">Головна сторінка</a></li>
             <li class="drop">
-                <a href="Правильне харчування.html">Правильне харчування</a>
+                <a href="/healthy_food">Правильне харчування</a>
     
                 <div class="dropdownContain">
                     <div class="dropOut">
                         <div class="triangle"></div>
                         <ul>
-                            <li><a href="Сніданок.html">Сніданок</a></li>
-                            <li><a href="Обід.html">Обід</a></li>
-                            <li><a href="Вечеря.html">Вечеря</a></li>
+                            <li><a href="/breakfast">Сніданок</a></li>
+                            <li><a href="/lunch">Обід</a></li>
+                            <li><a href="/dinner">Вечеря</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                 </div>
     </nav>
     
-    <%- include('./partials/main.ejs') %>
+    <%- include(path) %>
     
     <div id="footer">
         <div class="left_footer">Health&Food &copy; 2022</div>

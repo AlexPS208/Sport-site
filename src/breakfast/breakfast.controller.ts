@@ -1,10 +1,13 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller('breakfast')
 export class BreakfastController {
     @Get()
-    @Render('')
-    BreakfastController() {
-
-    }
+    BreakfastController(@Res() res: Response) {
+    return res.render(
+      'main.ejs',
+      { path: './partials/src/breakfast.ejs' },
+    );
+  }
 }

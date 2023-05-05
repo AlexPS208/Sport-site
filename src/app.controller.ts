@@ -9,6 +9,6 @@ export class AppController {
 
   @Get()
   root(@Res() res: Response) {
-    return res.render('/static/main.ejs', { path: viewsPath.main });
+    return res.render('/main.ejs', { path: viewsPath.main });
   }
 }

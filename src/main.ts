@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.set('views', join(__dirname, 'views'));
-  app.use('/static', express.static('/views'));
+  app.use('/static', express.static('src/views'));
   app.setViewEngine('ejs');
   app.engine('ejs', ejs.__express);
 

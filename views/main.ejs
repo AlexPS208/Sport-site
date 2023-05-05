@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/logo.ico" type="image/x-icon">
     <title>Health&Food</title>
 </head>
 
@@ -22,32 +22,32 @@
                     <div class="dropOut">
                         <div class="triangle"></div>
                         <ul>
-                            <li><a href="/breakfast">Сніданок</a></li>
-                            <li><a href="/lunch">Обід</a></li>
-                            <li><a href="/dinner">Вечеря</a></li>
+                            <li><a href="/healthy_food/breakfast">Сніданок</a></li>
+                            <li><a href="/healthy_food/lunch">Обід</a></li>
+                            <li><a href="/healthy_food/dinner">Вечеря</a></li>
                         </ul>
                     </div>
                 </div>
     
             </li>
             <li class="drop">
-                <a href="Тренування.html">Тренування</a>
+                <a href="/training">Тренування</a>
                 <div class="dropdownContain">
                     <div class="dropOut">
                         <div class="triangle"></div>
                         <ul>
-                            <li> <a href="Спина.html">М'язи спини</a></li>
-                            <li> <a href="Руки.html">М'язи рук</a></li>
-                            <li> <a href="Прес.html">М'язи живота</a></li>
-                            <li> <a href="Ноги.html">М'язи ніг</a></li>
-                            <li> <a href="Сідниці.html">М'язи сідниць</a></li>
-                            <li> <a href="Всі м'язи.html">М'язи всього тіла</a></li>
+                            <li> <a href="/training/back">М'язи спини</a></li>
+                            <li> <a href="/training/arms">М'язи рук</a></li>
+                            <li> <a href="/training/core">М'язи живота</a></li>
+                            <li> <a href="/training/legs">М'язи ніг</a></li>
+                            <li> <a href="/training/butt">М'язи сідниць</a></li>
+                            <li> <a href="/training/all_muscles">М'язи всього тіла</a></li>
                         </ul>
                     </div>
                 </div>
     </nav>
     
-    <%- include(path) %>
+    <%- include('./partials'+path) %>
     
     <div id="footer">
         <div class="left_footer">Health&Food &copy; 2022</div>

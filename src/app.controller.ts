@@ -1,6 +1,7 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { AppService } from './app.service';
+import { viewsPath } from './enums/viewsPath';
 
 @Controller()
 export class AppController {
@@ -8,9 +9,6 @@ export class AppController {
 
   @Get()
   root(@Res() res: Response) {
-    return res.render(
-      'main.ejs',
-      { path: './partials/main.ejs' },
-    );
+    return res.render('main.ejs', { path: viewsPath.main });
   }
 }

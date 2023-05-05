@@ -1,5 +1,5 @@
 export enum viewsPath {
-    main = '/main.ejs',
+    main = '/main',
 
     food = '/src/food/healthy_food.ejs',
     breakfast = '/src/food/breakfast.ejs',

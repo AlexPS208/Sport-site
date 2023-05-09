@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/buttons.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="shortcut icon" href="../static/img/logo.ico" type="image/x-icon">
     <title>Health&Food</title>
 </head>
 
 <body>
-    <div id="main_container"></div>
     <nav>
+        <div class="icon"></div>
         <ul>
             <li><a href="/">Головна сторінка</a></li>
             <li class="drop">
                 <a href="/healthy_food">Правильне харчування</a>
-    
+
                 <div class="dropdownContain">
                     <div class="dropOut">
                         <div class="triangle"></div>
@@ -28,7 +31,7 @@
                         </ul>
                     </div>
                 </div>
-    
+
             </li>
             <li class="drop">
                 <a href="/training">Тренування</a>
@@ -45,14 +48,16 @@
                         </ul>
                     </div>
                 </div>
+            </li>
+        </ul>
     </nav>
-    
-    <%- include('./partials'+path) %>
-    
+
+    <main>
+        <%- include('./partials'+path) %>
+    </main>
+
     <div id="footer">
-        <div class="left_footer">Health&Food &copy; 2022</div>
-        <div class="right_footer"></div>
-    </div>
+        Health&Food &copy; 2022
     </div>
 </body>
 

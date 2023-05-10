@@ -12,5 +12,8 @@ export enum viewsPath {
     legs = '/src/training/legs.ejs',
     arms = '/src/training/arms.ejs',
     butt = '/src/training/butt.ejs',
-    all_muscles = '/src/training/all_muscles.ejs'
+    all_muscles = '/src/training/all_muscles.ejs',
+
+    dayli = '/src/daily/diary.ejs',
+    calculator = '/src/calculator/calculator.ejs'
 }

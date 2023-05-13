@@ -88,5 +88,6 @@ export function refreshMonth(date) {
                 item.click()
             })
         }
+        localStorage.clear()
     }
 }

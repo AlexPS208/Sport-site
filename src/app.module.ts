@@ -6,6 +6,8 @@ import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { HealthyFoodController } from './healthy_food/healthy_food.controller';
 import { TrainingController } from './training/training.controller';
+import { DailyController } from './daily/daily.controller';
+import { CalculatorController } from './calculator/calculator.controller';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { TrainingController } from './training/training.controller';
     AppController,
     HealthyFoodController,
     TrainingController,
+    DailyController,
+    CalculatorController,
   ],
   providers: [AppService],
 })

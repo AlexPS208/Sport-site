@@ -7,7 +7,7 @@ let date = setDate()
 Load(date)
 
 // Refresh month
-refreshMonth(date)
+// refreshMonth(date)
 
 // Button to previouse day
 document.getElementById('previous').onclick = () => {
@@ -224,17 +224,17 @@ function Load(date) {
   }
 }
 
-function refreshMonth(date) {
-  if (localStorage.month && localStorage.year) {
-      if (date[1] !== localStorage.month || date[2] !== localStorage.year) {
-          let deleteButton = document.getElementsByName('del')
-          deleteButton.forEach(function (item) {
-              item.click()
-          })
-      }
-      localStorage.clear()
-  }
-}
+// function refreshMonth(date) {
+//   if (localStorage.month && localStorage.year) {
+//       if (date[1] !== localStorage.month || date[2] !== localStorage.year) {
+//           let deleteButton = document.getElementsByName('del')
+//           deleteButton.forEach(function (item) {
+//               item.click()
+//           })
+//       }
+//       localStorage.clear()
+//   }
+// }
 
 
 // ----------- DEFINE DATE ------------ //

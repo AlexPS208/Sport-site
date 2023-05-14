@@ -3,10 +3,10 @@ import {
   Delete,
   Load,
   refreshMonth
-} from './localStorage.js'
+} from '../static/js/localStorage.js'
 import {
   setDate
-} from './defineDate.js'
+} from '../static/js/defineDate.js'
 
 // Set date
 let date = setDate()

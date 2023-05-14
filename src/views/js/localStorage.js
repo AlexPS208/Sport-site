@@ -1,6 +1,6 @@
 import {
     renderRow
-} from "./dynamicTable.js"
+} from "../static/js/dynamicTable.js"
 
 // Local Storage structure:
 // {

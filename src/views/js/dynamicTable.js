@@ -1,12 +1,4 @@
-import {
-  Save,
-  Delete,
-  Load,
-  refreshMonth
-} from '../static/js/localStorage.js'
-import {
-  setDate
-} from '../static/js/defineDate.js'
+// ---------- DYNAMIC TABLE ------------ //
 
 // Set date
 let date = setDate()
@@ -105,7 +97,7 @@ function validation(element) {
   return element
 }
 
-export function renderRow(data) {
+function renderRow(data) {
   // General validation
   if (!data.activity || !data.time || !data.calories) {
     return
@@ -149,4 +141,166 @@ export function renderRow(data) {
 
   // Activation new delete button
   deleteRow()
+}
+
+// --------- LOCAL STORAGE --------- //
+
+
+// Local Storage structure:
+// {
+//     day(number): {
+//         activity(string): {
+//             time: number,
+//             callories: number
+//         }
+//     }
+// }
+
+function Save(date, data) {
+  // Get old data
+  let oldData = localStorage.getItem(Number(date[0]))
+
+  // If data is empty
+  if (oldData) {
+      oldData = JSON.parse(oldData)
+  }
+
+  // Refresh data
+  if (!oldData) {
+      oldData = {}
+  }
+  if (!oldData.hasOwnProperty(data.activity)) {
+      oldData[data.activity] = {}
+  }
+
+  oldData[data.activity].time = data.time
+  oldData[data.activity].calories = data.calories
+
+  // Save it
+  localStorage.setItem(Number(date[0]), JSON.stringify(oldData))
+  localStorage.month = date[1]
+  localStorage.year = date[2]
+}
+
+
+function Delete(day, activity) {
+  // Get old data
+  let oldData = localStorage.getItem(Number(day))
+
+  // If data is empty
+  if (!oldData) {
+      return
+  } else {
+      oldData = JSON.parse(oldData)
+  }
+
+  // Refresh data
+  delete oldData[activity]
+
+  // Save it
+  localStorage.setItem(Number(day), JSON.stringify(oldData))
+}
+
+
+function Load(date) {
+  // Let today data
+  let data = localStorage[date[0]]
+
+  // If data is empty
+  if (!data) {
+      return
+  } else {
+      data = JSON.parse(data)
+  }
+
+  // Render every row
+  for (let activity in data) {
+      const renderData = {
+          'activity': activity,
+          'time': data[activity].time,
+          'calories': data[activity].calories
+      }
+      renderRow(renderData)
+  }
+}
+
+function refreshMonth(date) {
+  if (localStorage.month && localStorage.year) {
+      if (date[1] !== localStorage.month || date[2] !== localStorage.year) {
+          let deleteButton = document.getElementsByName('del')
+          deleteButton.forEach(function (item) {
+              item.click()
+          })
+      }
+      localStorage.clear()
+  }
+}
+
+
+// ----------- DEFINE DATE ------------ //
+
+function isLeap(year) {
+  return (new Date(year, 2, 0)).getDate() == 29
+}
+
+function isLastDayOfMonth(day, month, year) {
+  const longMonthes = ['01', '03', '05', '07', '08', '10', '12']
+  const shortMonthes = ['04', '06', '09', '11']
+  const february = '02'
+
+  if ((longMonthes.includes(month) && day !== '31') ||
+      (shortMonthes.includes(month) && day !== '30') ||
+      (month === february && isLeap(year) && day !== '29') ||
+      (month === february && !isLeap(year) && day !== '28')) return true
+
+  return false
+}
+
+function defineTomorrow(day, month, year) {
+  let date
+  if (arguments.length === 3) {
+      date = new Date(Number(year), Number(month) - 1, Number(day) + 1)
+  } else {
+      date = new Date()
+  }
+
+  // Return date in format [DD, MM, YYYY]
+  return date.toISOString().slice(0, 10).split('-').reverse()
+}
+
+function buttonsRender(date) {
+  const day = date[0]
+  const month = date[1]
+  const year = date[2]
+
+  let previous = document.getElementById('previous')
+  let next = document.getElementById('next')
+
+  // Render previous button
+  if (day !== '01') {
+      previous.style.visibility = 'visible'
+  } else {
+      previous.style.visibility = 'hidden'
+  }
+  // Render next button
+  if (isLastDayOfMonth(day, month, year)) {
+      next.style.visibility = 'visible'
+  } else {
+      next.style.visibility = 'hidden'
+  }
+}
+
+function setDate(date) {
+  let tomorrow
+  if (arguments.length > 0) {
+      tomorrow = defineTomorrow(date[0], date[1], date[2])
+  } else {
+      tomorrow = defineTomorrow()
+  }
+
+  let label = document.getElementById('label')
+  label.innerHTML = 'Моя активність за ' + tomorrow.join('.')
+
+  buttonsRender(tomorrow)
+  return tomorrow
 }

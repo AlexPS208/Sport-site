@@ -86,3 +86,37 @@ h3 {
     margin-left: 0;
     margin-right: 100px;
 }
+
+/*----scroll----*/
+
+.scrollButton {
+    width: 40px;
+    background-color: #8fa7b3;
+    opacity: 0.8;
+    border-radius: 10px;
+    padding: 6px 6px 3px 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    display: none;
+
+    position: fixed;
+    left: 40px;
+    bottom: 40px;
+}
+
+.scrollButton:hover {
+    background-color: #6e96ac;
+    opacity: 0.9;
+}
+
+.scrollButton:active {
+    background-color: #4487ac;
+    opacity: 0.9;
+}
+
+.scrollButton img {
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(90deg);
+}
